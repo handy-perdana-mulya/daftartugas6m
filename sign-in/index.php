@@ -42,17 +42,36 @@
     <img class="mb-4" src="../assets/brand/bootstrap-logo.svg" alt="" width="72" height="57">
     <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
     <?php
-    $inputSQL = "SELECT * FROM pengguna WHERE email = '" . $_POST['inputan_email'] .
-    "' AND password = MD5('" . $_POST['inputan_password'] . "')";
-    print_r($inputSQL);
+
+    include_once("../database/database.php");
+    $database = new Database;
+    $connection = $database->getConnection();
+
+    if(isset($_POST['button_signin'])){
+      $loginSQL = "SELECT * FROM pengguna WHERE email = '" . $_POST['inputan_email'] .
+      "' AND password = MD5('" . $_POST['inputan_password'] . "')";
+      //print_r($loginSQL);
+  
+      $statement = $connection->prepare($loginSQL);
+      $statement->execute();
+      $row_count = $statement->rowCount();
+  
+      if ($row_count > 0){
+        echo "Login Berhasil";
+      } else {
+        echo "Gagal Login";
+      }
+  
+    }
+   
     ?>
 
     <div class="form-floating">
-      <input type="email" class="form-control" name="inputan_email" id="inputan_email" placeholder="name@example.com">
+      <input type="email" class="form-control" name="inputan_email" id="inputan_email" placeholder="name@example.com" required>
       <label for="floatingInput">Email address</label>
     </div>
     <div class="form-floating">
-      <input type="password" class="form-control" name="inputan_password" id="inputan_password" placeholder="Password">
+      <input type="password" class="form-control" name="inputan_password" id="inputan_password" placeholder="Password" required>
       <label for="floatingPassword">Password</label>
     </div>
 

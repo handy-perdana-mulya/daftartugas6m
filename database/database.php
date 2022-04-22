@@ -21,7 +21,7 @@ class Database{
     public function getConnection(){
         $this->conncection = null;
         try{
-            $this->connection = new PDO("mysql:host=".$this->host.";dbname=".this->nama_database,
+            $this->connection = new PDO("mysql:host=".$this->host.";dbname=".$this->nama_database,
                 $this->username, $this->password);
             $this->connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         } catch (PDOException $e){
