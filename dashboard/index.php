@@ -1,3 +1,15 @@
+<?php
+session_start();
+if(!isset($_SESSION['email'])){
+  echo '<meta http-equiv="refresh" content="0;url=http://localhost/daftartugas6m">';
+}
+
+if(isset($_POST['button_logout'])){
+  session_destroy();
+  echo '<meta http-equiv="refresh" content="0;url=http://localhost/daftartugas6m">';
+}
+?>
+
 <!doctype html>
 <html lang="en">
   <head>
@@ -45,7 +57,9 @@
   <input class="form-control form-control-dark w-100" type="text" placeholder="Search" aria-label="Search">
   <div class="navbar-nav">
     <div class="nav-item text-nowrap">
-      <a class="nav-link px-3" href="#">Sign out</a>
+      <form action="" method="post">
+        <button type="submit" name="button_logout" class="btn btn-danger nav-link px-3">Sign Out</button>
+      </form>
     </div>
   </div>
 </header>
@@ -58,7 +72,7 @@
           <li class="nav-item">
             <a class="nav-link active" aria-current="page" href="#">
               <span data-feather="home"></span>
-              Dashboard
+              Dashboard 
             </a>
           </li>
           <li class="nav-item">

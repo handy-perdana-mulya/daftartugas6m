@@ -42,6 +42,11 @@
     <img class="mb-4" src="../assets/brand/bootstrap-logo.svg" alt="" width="72" height="57">
     <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
     <?php
+    session_start();
+    
+    if(isset($_SESSION['email'])){
+      header('Location: ../dashboard/index.php');
+    }
 
     include_once("../database/database.php");
     $database = new Database;
@@ -56,7 +61,9 @@
       $statement->execute();
       $row_count = $statement->rowCount();
   
-      if ($row_count > 0){
+      if ($row_count > 0) {
+        session_start();
+        $_SESSION['email'] = $_POST['inputan_email'];
         header('Location: ../dashboard/index.php')
       ?>
       <div class="alert alert-success" role="alert">
