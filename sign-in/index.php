@@ -45,7 +45,7 @@
     session_start();
     
     if(isset($_SESSION['email'])){
-      header('Location: ../dashboard/index.php');
+      header('Location: ../pages/main.php');
     }
 
     include_once("../database/database.php");
@@ -64,7 +64,7 @@
       if ($row_count > 0) {
         session_start();
         $_SESSION['email'] = $_POST['inputan_email'];
-        header('Location: ../dashboard/index.php')
+        header('Location: ../pages/main.php')
       ?>
       <div class="alert alert-success" role="alert">
       Login Berhasil
