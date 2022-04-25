@@ -1,15 +1,19 @@
 <?php
-if(isset($_GET['page'])){
+    if (isset($_GET['page'])) {
     $page = $_GET['page'];
     switch($page){
         case '':
-            include "dashboard.php";
+        case 'dashboard':
+            file_exists("dashboard.php") ? include "dashboard.php" : include "404.php";
             break;
         case 'dosen':
-            include "dosen.php";
+            file_exists("dosen.php") ? include "dosen.php" : include "404.php";
             break;
         case 'matakuliah':
-            include "matakuliah.php";
+            file_exists("matakuliah.php") ? include "matakuliah.php" : include "404.php";
+            break;
+        case 'tugas':
+            file_exists("tugas.php") ? include "tugas.php" : include "404.php";
             break;
         default:
             include "404.php";
@@ -18,6 +22,3 @@ if(isset($_GET['page'])){
 } else {
     include "dashboard.php";
 }
-    
-
-?>
