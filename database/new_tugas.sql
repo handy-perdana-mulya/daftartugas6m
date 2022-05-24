@@ -1,0 +1,1 @@
+CREATE TABLE `praktikum_daftartugas6`.`tugas` ( `id` INT NOT NULL AUTO_INCREMENT , `nama_tugas` VARCHAR(255) NOT NULL , `matakuliah_id` INT NOT NULL , `keterangan` VARCHAR(255) NOT NULL , `deadline` VARCHAR(255) NOT NULL , PRIMARY KEY (`id`)) ENGINE = InnoDB;
