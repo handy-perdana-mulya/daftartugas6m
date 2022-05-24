@@ -1,1 +1,1 @@
-CREATE TABLE `praktikum_daftartugas6`.`matakuliah` ( `id` INT NOT NULL AUTO_INCREMENT , `nama_matakuliah` VARCHAR(255) NOT NULL , `hari` VARCHAR(255) NOT NULL , `jam` VARCHAR(255) NOT NULL , `dosen_id` INT NOT NULL , PRIMARY KEY (`id`)) ENGINE = InnoDB;
+CREATE TABLE `praktikum_daftartugas6m`.`matakuliah` ( `id` INT NOT NULL AUTO_INCREMENT , `nama_matakuliah` VARCHAR(255) NOT NULL , `hari` VARCHAR(255) NOT NULL , `jam` VARCHAR(255) NOT NULL , `dosen_id` INT NOT NULL , PRIMARY KEY (`id`)) ENGINE = InnoDB;
