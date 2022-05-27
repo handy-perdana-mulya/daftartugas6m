@@ -1,4 +1,14 @@
 <h2>Dosen</h2>
+<?php
+if ($_SESSION['pesan'] != "kosong") {
+?>
+    <div class="alert alert-success" role="alert">
+        <?php echo $_SESSION['pesan'] ?>
+    </div>
+<?php
+$_SESSION['pesan'] = "kosong";
+}
+?>
 <div class="table-responsive">
   <a href="?page=dosencreate" class="btn btn-primary mb-3"> <span data-feather="plus"></span> Data Baru</a>
         <table class="table table-striped table-sm">
@@ -30,7 +40,7 @@
               <td><?php echo $data['handphone'] ?></td>
               <td><?php echo $data['email'] ?></td>
               <td>
-                  <a href="#" class="badge bg-warning">
+                  <a href="?page=dosenupdate&id=<?php echo $data['id'] ?>" class="badge bg-warning">
                   <span data-feather="edit"></span>
                   </a>
                   <a href="#" class="badge bg-danger">

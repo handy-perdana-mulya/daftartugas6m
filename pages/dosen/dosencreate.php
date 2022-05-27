@@ -6,29 +6,28 @@ if (isset($_POST['button_simpan'])) {
     $email = $_POST['email'];
 
     // $createSQL = "INSERT INTO `dosen` (`id`, `nama_dosen`, `handphone`, `email`) VALUES (NULL, '$nama_dosen', '$handphone', '$email')";
-     $createSQL = "INSERT INTO `dosen` (`id`, `nama_dosen`, `handphone`, `email`) VALUES (NULL, ?, ?, ?)";
+    $createSQL = "INSERT INTO `dosen` (`id`, `nama_dosen`, `handphone`, `email`) VALUES (NULL, ?, ?, ?)";
 
-    echo $createSQL;
     include_once("../database/database.php");
     $database = new Database;
     $connection = $database->getConnection();
-    $statement  = $connection->prepare($createSQL);
+    $statement = $connection->prepare($createSQL);
     $statement->bindParam(1, $nama_dosen);
     $statement->bindParam(2, $handphone);
     $statement->bindParam(3, $email);
     $statement->execute();
 ?>
     <div class="alert alert-success" role="alert">
-    Berhasil simpan data
+        Berhasil simpan data
     </div>
 <?php
-
+    $_SESSION['pesan'] = "Berhasil simpan data";
     header('Location: main.php?page=dosen');
 }
 ?>
 
 <div class="row">
-    <form action="action" method="post">
+    <form action="" method="post">
         <div class="mb-3">
             <label for="nama_dosen" class="form-label">Nama Dosen</label>
             <input type="text" class="form-control" id="nama_dosen" name="nama_dosen" required>
@@ -42,6 +41,5 @@ if (isset($_POST['button_simpan'])) {
             <input type="email" class="form-control" id="email" name="email" placeholder="name@example.com" required>
         </div>
         <button type="submit" class="btn btn-success" name="button_simpan">Simpan</button>
-    </form>    
-
+    </form>
 </div>
