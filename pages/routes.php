@@ -7,7 +7,10 @@
             file_exists("dashboard.php") ? include "dashboard.php" : include "404.php";
             break;
         case 'dosen':
-            file_exists("dosen.php") ? include "dosen.php" : include "404.php";
+            file_exists("dosen/dosen.php") ? include "dosen/dosen.php" : include "404.php";
+            break;
+        case 'dosencreate':
+            file_exists("dosen/dosencreate.php") ? include "dosen/dosencreate.php" : include "404.php";
             break;
         case 'matakuliah':
             file_exists("matakuliah.php") ? include "matakuliah.php" : include "404.php";
