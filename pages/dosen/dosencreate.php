@@ -31,15 +31,15 @@ if (isset($_POST['button_simpan'])) {
     <form action="action" method="post">
         <div class="mb-3">
             <label for="nama_dosen" class="form-label">Nama Dosen</label>
-            <input type="text" class="form-control" id="nama_dosen" name="nama_dosen">
+            <input type="text" class="form-control" id="nama_dosen" name="nama_dosen" required>
         </div>
         <div class="mb-3">
             <label for="handphone" class="form-label">Handphone</label>
-            <input type="text" class="form-control" id="handphone" name="handphone">
+            <input type="text" class="form-control" id="handphone" name="handphone" required>
         </div>
         <div class="mb-3">
             <label for="email" class="form-label">Email</label>
-            <input type="email" class="form-control" id="email" name="email" placeholder="name@example.com">
+            <input type="email" class="form-control" id="email" name="email" placeholder="name@example.com" required>
         </div>
         <button type="submit" class="btn btn-success" name="button_simpan">Simpan</button>
     </form>    
