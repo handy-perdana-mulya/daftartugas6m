@@ -5,13 +5,17 @@ if (isset($_POST['button_simpan'])) {
     $handphone = $_POST['handphone'];
     $email = $_POST['email'];
 
-    $createSQL = "INSERT INTO `dosen`(`id`, `nama_dosen`, `handphone`, `email`) VALUES (NULL, '$nama_dosen', '$handphone', '$email')";
+    // $createSQL = "INSERT INTO `dosen` (`id`, `nama_dosen`, `handphone`, `email`) VALUES (NULL, '$nama_dosen', '$handphone', '$email')";
+     $createSQL = "INSERT INTO `dosen` (`id`, `nama_dosen`, `handphone`, `email`) VALUES (NULL, ?, ?, ?)";
 
     echo $createSQL;
     include_once("../database/database.php");
     $database = new Database;
     $connection = $database->getConnection();
     $statement  = $connection->prepare($createSQL);
+    $statement->bindParam(1, $nama_dosen);
+    $statement->bindParam(2, $handphone);
+    $statement->bindParam(3, $email);
     $statement->execute();
 ?>
     <div class="alert alert-success" role="alert">
